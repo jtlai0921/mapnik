@@ -278,7 +278,7 @@ auto const feature_part_def = feature_type
     ;
 
 
-auto const feature_rule_def = lit('{') > feature_part % lit(',') > lit('}');
+auto const feature_rule_def = lit('{') > omit[feature_part] % lit(',') > lit('}');
 
 
 auto const geometry_rule_def =  (lit('{') > geometry_tuple[create_geometry] > lit('}')) | lit("null");
