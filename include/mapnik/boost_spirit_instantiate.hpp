@@ -23,15 +23,22 @@
 #ifndef MAPNIK_BOOST_SPIRIT_INSTANTIATE_HPP
 #define MAPNIK_BOOST_SPIRIT_INSTANTIATE_HPP
 
+#include <boost/version.hpp>
+
 namespace boost { namespace spirit { namespace x3
 {
 // helper macro
+#if BOOST_VERSION >= 107000
+// In Boost 1.70 instantiation of atributeless rules was fixed
+#define BOOST_SPIRIT_INSTANTIATE_UNUSED(rule_type, Iterator, Context)
+#else
 #define BOOST_SPIRIT_INSTANTIATE_UNUSED(rule_type, Iterator, Context)   \
     template bool parse_rule<Iterator, Context, boost::spirit::x3::unused_type const>( \
         rule_type rule_                                                 \
         , Iterator& first, Iterator const& last                         \
         , Context const& context, boost::spirit::x3::unused_type const& ); \
     /***/
+#endif
 
 }}}
 
