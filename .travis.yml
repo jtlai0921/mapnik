@@ -29,7 +29,7 @@ matrix:
         postgresql: "9.5"
         apt:
           sources: [ 'ubuntu-toolchain-r-test', { sourceline: 'ppa:mhier/libboost-latest' } ]
-          packages: [ 'libstdc++-6-dev', 'g++-6', 'xutils-dev', 'postgresql-9.5-postgis-2.3', 'libboost-all-dev' ]
+          packages: [ 'libstdc++-6-dev', 'g++-6', 'xutils-dev', 'postgresql-9.5-postgis-2.3', 'libboost1.70-dev' ]
     - os: linux
       name: Linux clang-3.9
       env: >-
@@ -42,7 +42,7 @@ matrix:
         postgresql: "9.5"
         apt:
           sources: [ 'ubuntu-toolchain-r-test', { sourceline: 'ppa:mhier/libboost-latest' } ]
-          packages: [ 'clang-3.9', 'libstdc++-4.9-dev', 'xutils-dev', 'postgresql-9.5-postgis-2.3', 'libboost-all-dev' ]
+          packages: [ 'clang-3.9', 'libstdc++-4.9-dev', 'xutils-dev', 'postgresql-9.5-postgis-2.3', 'libboost1.70-dev' ]
 
 install:
  - source scripts/travis-common.sh
